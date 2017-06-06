@@ -39,8 +39,12 @@ namespace PingPong
             Pause.Visible = false;
             victory.Visible = false;
             victory.Left = PlayArea.Width - victory.Width;
+            victory2.Visible = false;
+            victory3.Visible = false;
+            victory4.Visible = false;
+            
 
-         
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -53,23 +57,39 @@ namespace PingPong
             if (ball.Bottom >= pad.Top && ball.Bottom <= pad.Bottom && ball.Left >= pad.Left && ball.Right <= pad.Right)
             {
 
-                if (points < 8) {
-                    speed_left += 2;
-                    speed_top += 2;
+                if (points < 12) {
+                    speed_left += 1;
+                    
+                    
                     DiffVal.Text = Math.Abs(speed_top).ToString();
                 }
 
-                if (points == 10 || points == 25) {
-                    pad.Width -= 50;
+
+                if (ball.Right >= (pad.Right - 50))
+                {
+                    speed_left += 2;
+                    
                 }
 
+                if (ball.Left <= (pad.Left + 50))
+                {
+                    speed_left -= 2;
+                    
+                }
+                speed_top += 1;
 
-          
-
-                speed_top= -speed_top;
+                speed_top = -speed_top;
                 points += 1;
                 Number.Text = points.ToString();
+
+                if (points == 10 || points == 25 || points == 40)
+                {
+                    pad.Width -= 50;
+                }
             }
+
+            
+
 
             if (ball.Left <= PlayArea.Left || ball.Right >= PlayArea.Right)
             {
@@ -97,6 +117,21 @@ namespace PingPong
                 victory.Visible = true;
 
             }
+
+            if (points == 10)
+            {
+                victory2.Visible = true;
+            }
+
+            if (points == 15)
+            {
+                victory3.Visible = true;
+            }
+
+            if (points == 20)
+            {
+                victory4.Visible = true;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -105,7 +140,7 @@ namespace PingPong
             {
                 this.Close();
             }
-            if (e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space && GameOver.Visible == false)
             {
                 timer1.Enabled = !(timer1.Enabled);
                 Pause.Visible = !(Pause.Visible);
@@ -113,9 +148,9 @@ namespace PingPong
 
             }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void PlayArea_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
     }
     }
