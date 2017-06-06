@@ -34,7 +34,9 @@ namespace PingPong
             Pause.Top = (PlayArea.Height/2) - (Pause.Height/2);
             GameOver.Left = (PlayArea.Width / 2) - (GameOver.Width / 2);
             GameOver.Top = (PlayArea.Height / 2) - (GameOver.Height / 2);
+            GameOver2.Left = (PlayArea.Width / 2) - (GameOver.Width / 2);
             GameOver.Visible = false;
+            GameOver2.Visible = false;
 
             Pause.Visible = false;
             victory.Visible = false;
@@ -105,6 +107,7 @@ namespace PingPong
             {
                 timer1.Enabled = false;
                 GameOver.Visible = true;
+                GameOver2.Visible = true;
                 Score.Visible = false;
                 Number.Left = (PlayArea.Width / 2) + (GameOver.Width/2);
                 Number.Top = GameOver.Top;
