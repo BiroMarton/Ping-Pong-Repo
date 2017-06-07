@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PlayArea = new System.Windows.Forms.Panel();
+            this.pad = new System.Windows.Forms.PictureBox();
             this.GameOver2 = new System.Windows.Forms.Label();
             this.Number = new System.Windows.Forms.Label();
             this.Pause = new System.Windows.Forms.Label();
@@ -43,21 +44,25 @@
             this.Diff = new System.Windows.Forms.Label();
             this.victory = new System.Windows.Forms.PictureBox();
             this.Score = new System.Windows.Forms.Label();
-            this.pad = new System.Windows.Forms.PictureBox();
+            this.victory5 = new System.Windows.Forms.PictureBox();
+            this.GameOverPic = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PlayArea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.victory5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverPic)).BeginInit();
             this.SuspendLayout();
             // 
             // PlayArea
             // 
             this.PlayArea.AutoSize = true;
             this.PlayArea.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.PlayArea.Controls.Add(this.pad);
             this.PlayArea.Controls.Add(this.GameOver2);
             this.PlayArea.Controls.Add(this.Number);
             this.PlayArea.Controls.Add(this.Pause);
@@ -70,7 +75,8 @@
             this.PlayArea.Controls.Add(this.Diff);
             this.PlayArea.Controls.Add(this.victory);
             this.PlayArea.Controls.Add(this.Score);
-            this.PlayArea.Controls.Add(this.pad);
+            this.PlayArea.Controls.Add(this.victory5);
+            this.PlayArea.Controls.Add(this.GameOverPic);
             this.PlayArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlayArea.Enabled = false;
             this.PlayArea.Location = new System.Drawing.Point(0, 0);
@@ -79,6 +85,18 @@
             this.PlayArea.Size = new System.Drawing.Size(1583, 842);
             this.PlayArea.TabIndex = 0;
             this.PlayArea.Paint += new System.Windows.Forms.PaintEventHandler(this.PlayArea_Paint);
+            // 
+            // pad
+            // 
+            this.pad.BackColor = System.Drawing.Color.Transparent;
+            this.pad.Image = ((System.Drawing.Image)(resources.GetObject("pad.Image")));
+            this.pad.Location = new System.Drawing.Point(477, 422);
+            this.pad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pad.Name = "pad";
+            this.pad.Size = new System.Drawing.Size(325, 30);
+            this.pad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pad.TabIndex = 0;
+            this.pad.TabStop = false;
             // 
             // GameOver2
             // 
@@ -126,12 +144,15 @@
             // 
             // ball
             // 
-            this.ball.BackColor = System.Drawing.Color.DarkGreen;
-            this.ball.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ball.Location = new System.Drawing.Point(263, 212);
+            this.ball.BackColor = System.Drawing.Color.Transparent;
+            this.ball.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ball.Image = ((System.Drawing.Image)(resources.GetObject("ball.Image")));
+            this.ball.InitialImage = ((System.Drawing.Image)(resources.GetObject("ball.InitialImage")));
+            this.ball.Location = new System.Drawing.Point(218, 207);
             this.ball.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ball.Name = "ball";
-            this.ball.Size = new System.Drawing.Size(39, 36);
+            this.ball.Size = new System.Drawing.Size(46, 46);
+            this.ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ball.TabIndex = 1;
             this.ball.TabStop = false;
             // 
@@ -194,7 +215,7 @@
             // 
             this.victory.Image = ((System.Drawing.Image)(resources.GetObject("victory.Image")));
             this.victory.Location = new System.Drawing.Point(955, 252);
-            this.victory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.victory.Margin = new System.Windows.Forms.Padding(4);
             this.victory.Name = "victory";
             this.victory.Size = new System.Drawing.Size(628, 354);
             this.victory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -212,15 +233,25 @@
             this.Score.TabIndex = 2;
             this.Score.Text = "Score :";
             // 
-            // pad
+            // victory5
             // 
-            this.pad.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pad.Location = new System.Drawing.Point(204, 402);
-            this.pad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pad.Name = "pad";
-            this.pad.Size = new System.Drawing.Size(323, 30);
-            this.pad.TabIndex = 0;
-            this.pad.TabStop = false;
+            this.victory5.Image = ((System.Drawing.Image)(resources.GetObject("victory5.Image")));
+            this.victory5.Location = new System.Drawing.Point(477, 309);
+            this.victory5.Name = "victory5";
+            this.victory5.Size = new System.Drawing.Size(462, 297);
+            this.victory5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.victory5.TabIndex = 15;
+            this.victory5.TabStop = false;
+            // 
+            // GameOverPic
+            // 
+            this.GameOverPic.Image = ((System.Drawing.Image)(resources.GetObject("GameOverPic.Image")));
+            this.GameOverPic.Location = new System.Drawing.Point(185, 2);
+            this.GameOverPic.Name = "GameOverPic";
+            this.GameOverPic.Size = new System.Drawing.Size(1070, 670);
+            this.GameOverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GameOverPic.TabIndex = 16;
+            this.GameOverPic.TabStop = false;
             // 
             // timer1
             // 
@@ -240,12 +271,14 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.PlayArea.ResumeLayout(false);
             this.PlayArea.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.victory5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,6 +301,8 @@
         private System.Windows.Forms.PictureBox victory3;
         private System.Windows.Forms.PictureBox victory4;
         private System.Windows.Forms.Label GameOver2;
+        private System.Windows.Forms.PictureBox victory5;
+        private System.Windows.Forms.PictureBox GameOverPic;
     }
 }
 

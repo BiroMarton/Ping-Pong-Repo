@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,13 +20,11 @@ namespace PingPong
         public int points = 0;
 
 
- 
-
         public Form1()
         {
             InitializeComponent();
-
             timer1.Enabled = true;
+
 
             Cursor.Hide();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -33,6 +33,7 @@ namespace PingPong
 
             ball.Left = 100;
             ball.Top = 100;
+            pad.Width = 325;
             Number.Top = Score.Top;
             Number.Left = Score.Left + Score.Width;
             pad.Top = PlayArea.Bottom -(PlayArea.Bottom/10);
@@ -40,7 +41,9 @@ namespace PingPong
             Pause.Top = (PlayArea.Height/2) - (Pause.Height/2);
             GameOver.Left = (PlayArea.Width / 2) - (GameOver.Width / 2);
             GameOver.Top = (PlayArea.Height / 2) - (GameOver.Height / 2);
-            GameOver2.Left = (PlayArea.Width / 2) - (GameOver.Width / 2);
+            GameOver2.Left = (PlayArea.Width / 2) - (GameOver2.Width / 2);
+            GameOverPic.Left = (PlayArea.Width / 2) - (GameOverPic.Width / 2);
+            GameOverPic.Top = (PlayArea.Height / 2) - (GameOverPic.Height / 2);
             GameOver.Visible = false;
             GameOver2.Visible = false;
             DiffVal.Text = Math.Abs(speed_top).ToString();
@@ -50,7 +53,9 @@ namespace PingPong
             victory2.Visible = false;
             victory3.Visible = false;
             victory4.Visible = false;
-            
+            victory5.Visible = false;
+            GameOverPic.Visible = false;
+
 
 
         }
@@ -91,14 +96,22 @@ namespace PingPong
                 points += 1;
                 Number.Text = points.ToString();
 
-                if (points == 10 || points == 25 || points == 40)
+                if (points == 10 || points == 25 || points == 40 || points == 70)
                 {
                     pad.Width -= 50;
                 }
 
-                if (points == 50)
+                if (points == 50 || points == 99)
                 {
-                    speed_top += 5;
+                    if (speed_top > 0)
+                    {
+                        speed_top += 5;
+                    }
+                    else
+                    {
+                        speed_top -= 5;
+                    }
+                    
                     DiffVal.Text = Math.Abs(speed_top).ToString();
                 }
             }
@@ -118,9 +131,16 @@ namespace PingPong
 
             if (ball.Bottom >= PlayArea.Bottom)
             {
+                points = 0;
+                victory.Visible = false;
+                victory2.Visible = false;
+                victory3.Visible = false;
+                victory4.Visible = false;
+                victory5.Visible = false;
                 timer1.Enabled = false;
                 GameOver.Visible = true;
                 GameOver2.Visible = true;
+                GameOverPic.Visible = true;
                 Score.Visible = false;
                 Number.Left = (PlayArea.Width / 2) + (GameOver.Width/2);
                 Number.Top = GameOver.Top;
@@ -129,7 +149,7 @@ namespace PingPong
 
           
 
-            if (points >= 5) {
+            if (points == 5) {
                 victory.Visible = true;
 
             }
@@ -148,6 +168,11 @@ namespace PingPong
             {
                 victory4.Visible = true;
             }
+            if (points == 25)
+            {
+                victory5.Visible = true;
+            }
+
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -169,7 +194,10 @@ namespace PingPong
                 victory2.Visible = false;
                 victory3.Visible = false;
                 victory4.Visible = false;
+                victory5.Visible = false;
+                GameOverPic.Visible = false;
                 Score.Visible = true;
+                pad.Width = 325;
                 Number.Top = Score.Top;
                 Number.Left = Score.Left + Score.Width;
                 ball.Visible = true;
@@ -179,7 +207,6 @@ namespace PingPong
                 ball.Top = 100;
                 speed_left = 3;
                 speed_top = 3;
-                points = 0;
                 Number.Text = points.ToString();
                 DiffVal.Text = Math.Abs(speed_top).ToString();
                 timer1.Enabled = true;
@@ -194,5 +221,8 @@ namespace PingPong
 
         }
     }
+
     }
+
+
 
