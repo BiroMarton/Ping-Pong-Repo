@@ -175,13 +175,13 @@ namespace PingPong
                 ball.Visible = true;
                 GameOver.Visible = false;
                 GameOver2.Visible = false;
-                DiffVal.Text = Math.Abs(speed_top).ToString();
                 ball.Left = 100;
                 ball.Top = 100;
                 speed_left = 3;
                 speed_top = 3;
                 points = 0;
                 Number.Text = points.ToString();
+                DiffVal.Text = Math.Abs(speed_top).ToString();
                 timer1.Enabled = true;
 
 
