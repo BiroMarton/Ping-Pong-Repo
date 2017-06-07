@@ -16,6 +16,8 @@ namespace PingPong
         public int speed_top = 3;
         public int speed_left = 3;
         public int points = 0;
+
+
  
 
         public Form1()
@@ -29,6 +31,10 @@ namespace PingPong
             this.TopMost = true;
             this.Bounds = Screen.PrimaryScreen.Bounds;
 
+            ball.Left = 100;
+            ball.Top = 100;
+            Number.Top = Score.Top;
+            Number.Left = Score.Left + Score.Width;
             pad.Top = PlayArea.Bottom -(PlayArea.Bottom/10);
             Pause.Left = (PlayArea.Width / 2) - (Pause.Width / 2);
             Pause.Top = (PlayArea.Height/2) - (Pause.Height/2);
@@ -37,7 +43,7 @@ namespace PingPong
             GameOver2.Left = (PlayArea.Width / 2) - (GameOver.Width / 2);
             GameOver.Visible = false;
             GameOver2.Visible = false;
-
+            DiffVal.Text = Math.Abs(speed_top).ToString();
             Pause.Visible = false;
             victory.Visible = false;
             victory.Left = PlayArea.Width - victory.Width;
@@ -61,8 +67,9 @@ namespace PingPong
 
                 if (points < 12) {
                     speed_left += 1;
-                    
-                    
+                    speed_top += 1;
+
+
                     DiffVal.Text = Math.Abs(speed_top).ToString();
                 }
 
@@ -78,7 +85,7 @@ namespace PingPong
                     speed_left -= 2;
                     
                 }
-                speed_top += 1;
+                
 
                 speed_top = -speed_top;
                 points += 1;
@@ -87,6 +94,12 @@ namespace PingPong
                 if (points == 10 || points == 25 || points == 40)
                 {
                     pad.Width -= 50;
+                }
+
+                if (points == 50)
+                {
+                    speed_top += 5;
+                    DiffVal.Text = Math.Abs(speed_top).ToString();
                 }
             }
 
@@ -149,7 +162,32 @@ namespace PingPong
                 Pause.Visible = !(Pause.Visible);
             }
 
+            if(e.KeyCode == Keys.F1 && GameOver.Visible == true){
+
+                Pause.Visible = false;
+                victory.Visible = false;
+                victory2.Visible = false;
+                victory3.Visible = false;
+                victory4.Visible = false;
+                Score.Visible = true;
+                Number.Top = Score.Top;
+                Number.Left = Score.Left + Score.Width;
+                ball.Visible = true;
+                GameOver.Visible = false;
+                GameOver2.Visible = false;
+                DiffVal.Text = Math.Abs(speed_top).ToString();
+                ball.Left = 100;
+                ball.Top = 100;
+                speed_left = 3;
+                speed_top = 3;
+                points = 0;
+                Number.Text = points.ToString();
+                timer1.Enabled = true;
+
+
             }
+
+        }
 
         private void PlayArea_Paint(object sender, PaintEventArgs e)
         {

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PlayArea = new System.Windows.Forms.Panel();
+            this.GameOver2 = new System.Windows.Forms.Label();
             this.Number = new System.Windows.Forms.Label();
             this.Pause = new System.Windows.Forms.Label();
             this.GameOver = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.Score = new System.Windows.Forms.Label();
             this.pad = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.GameOver2 = new System.Windows.Forms.Label();
             this.PlayArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.victory4)).BeginInit();
@@ -74,19 +74,31 @@
             this.PlayArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlayArea.Enabled = false;
             this.PlayArea.Location = new System.Drawing.Point(0, 0);
-            this.PlayArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PlayArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PlayArea.Name = "PlayArea";
-            this.PlayArea.Size = new System.Drawing.Size(1187, 684);
+            this.PlayArea.Size = new System.Drawing.Size(1583, 842);
             this.PlayArea.TabIndex = 0;
             this.PlayArea.Paint += new System.Windows.Forms.PaintEventHandler(this.PlayArea_Paint);
+            // 
+            // GameOver2
+            // 
+            this.GameOver2.AutoSize = true;
+            this.GameOver2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.GameOver2.Location = new System.Drawing.Point(531, 34);
+            this.GameOver2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GameOver2.Name = "GameOver2";
+            this.GameOver2.Size = new System.Drawing.Size(899, 69);
+            this.GameOver2.TabIndex = 14;
+            this.GameOver2.Text = "Press Esc to exit or F1 to restart!";
             // 
             // Number
             // 
             this.Number.AutoSize = true;
             this.Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Number.Location = new System.Drawing.Point(116, 9);
+            this.Number.Location = new System.Drawing.Point(155, 11);
+            this.Number.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Number.Name = "Number";
-            this.Number.Size = new System.Drawing.Size(31, 33);
+            this.Number.Size = new System.Drawing.Size(39, 42);
             this.Number.TabIndex = 3;
             this.Number.Text = "0";
             // 
@@ -94,9 +106,10 @@
             // 
             this.Pause.AutoSize = true;
             this.Pause.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Pause.Location = new System.Drawing.Point(48, 93);
+            this.Pause.Location = new System.Drawing.Point(64, 114);
+            this.Pause.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Pause.Name = "Pause";
-            this.Pause.Size = new System.Drawing.Size(327, 55);
+            this.Pause.Size = new System.Drawing.Size(404, 69);
             this.Pause.TabIndex = 4;
             this.Pause.Text = "Game paused";
             // 
@@ -104,9 +117,10 @@
             // 
             this.GameOver.AutoSize = true;
             this.GameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GameOver.Location = new System.Drawing.Point(126, 382);
+            this.GameOver.Location = new System.Drawing.Point(168, 470);
+            this.GameOver.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameOver.Name = "GameOver";
-            this.GameOver.Size = new System.Drawing.Size(363, 33);
+            this.GameOver.Size = new System.Drawing.Size(458, 42);
             this.GameOver.TabIndex = 5;
             this.GameOver.Text = "Game Over! Your score is:";
             // 
@@ -114,20 +128,20 @@
             // 
             this.ball.BackColor = System.Drawing.Color.DarkGreen;
             this.ball.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ball.Location = new System.Drawing.Point(197, 172);
-            this.ball.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ball.Location = new System.Drawing.Point(263, 212);
+            this.ball.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ball.Name = "ball";
-            this.ball.Size = new System.Drawing.Size(30, 30);
+            this.ball.Size = new System.Drawing.Size(39, 36);
             this.ball.TabIndex = 1;
             this.ball.TabStop = false;
             // 
             // victory4
             // 
             this.victory4.Image = ((System.Drawing.Image)(resources.GetObject("victory4.Image")));
-            this.victory4.Location = new System.Drawing.Point(716, 106);
-            this.victory4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.victory4.Location = new System.Drawing.Point(955, 130);
+            this.victory4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.victory4.Name = "victory4";
-            this.victory4.Size = new System.Drawing.Size(277, 386);
+            this.victory4.Size = new System.Drawing.Size(369, 475);
             this.victory4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.victory4.TabIndex = 13;
             this.victory4.TabStop = false;
@@ -135,10 +149,10 @@
             // victory3
             // 
             this.victory3.Image = ((System.Drawing.Image)(resources.GetObject("victory3.Image")));
-            this.victory3.Location = new System.Drawing.Point(0, 223);
-            this.victory3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.victory3.Location = new System.Drawing.Point(0, 274);
+            this.victory3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.victory3.Name = "victory3";
-            this.victory3.Size = new System.Drawing.Size(244, 281);
+            this.victory3.Size = new System.Drawing.Size(325, 346);
             this.victory3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.victory3.TabIndex = 12;
             this.victory3.TabStop = false;
@@ -146,10 +160,10 @@
             // victory2
             // 
             this.victory2.Image = ((System.Drawing.Image)(resources.GetObject("victory2.Image")));
-            this.victory2.Location = new System.Drawing.Point(398, 2);
-            this.victory2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.victory2.Location = new System.Drawing.Point(531, 2);
+            this.victory2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.victory2.Name = "victory2";
-            this.victory2.Size = new System.Drawing.Size(232, 204);
+            this.victory2.Size = new System.Drawing.Size(309, 251);
             this.victory2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.victory2.TabIndex = 11;
             this.victory2.TabStop = false;
@@ -158,28 +172,31 @@
             // 
             this.DiffVal.AutoSize = true;
             this.DiffVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DiffVal.Location = new System.Drawing.Point(158, 45);
+            this.DiffVal.Location = new System.Drawing.Point(211, 55);
+            this.DiffVal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DiffVal.Name = "DiffVal";
-            this.DiffVal.Size = new System.Drawing.Size(31, 33);
+            this.DiffVal.Size = new System.Drawing.Size(39, 42);
             this.DiffVal.TabIndex = 10;
-            this.DiffVal.Text = "3";
+            this.DiffVal.Text = "0";
             // 
             // Diff
             // 
             this.Diff.AutoSize = true;
             this.Diff.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Diff.Location = new System.Drawing.Point(3, 45);
+            this.Diff.Location = new System.Drawing.Point(4, 55);
+            this.Diff.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Diff.Name = "Diff";
-            this.Diff.Size = new System.Drawing.Size(171, 33);
+            this.Diff.Size = new System.Drawing.Size(219, 42);
             this.Diff.TabIndex = 9;
             this.Diff.Text = "Ball Speed: ";
             // 
             // victory
             // 
             this.victory.Image = ((System.Drawing.Image)(resources.GetObject("victory.Image")));
-            this.victory.Location = new System.Drawing.Point(716, 205);
+            this.victory.Location = new System.Drawing.Point(955, 252);
+            this.victory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.victory.Name = "victory";
-            this.victory.Size = new System.Drawing.Size(471, 288);
+            this.victory.Size = new System.Drawing.Size(628, 354);
             this.victory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.victory.TabIndex = 7;
             this.victory.TabStop = false;
@@ -188,19 +205,20 @@
             // 
             this.Score.AutoSize = true;
             this.Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Score.Location = new System.Drawing.Point(3, 9);
+            this.Score.Location = new System.Drawing.Point(4, 11);
+            this.Score.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(107, 33);
+            this.Score.Size = new System.Drawing.Size(136, 42);
             this.Score.TabIndex = 2;
             this.Score.Text = "Score :";
             // 
             // pad
             // 
             this.pad.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pad.Location = new System.Drawing.Point(153, 327);
-            this.pad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pad.Location = new System.Drawing.Point(204, 402);
+            this.pad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pad.Name = "pad";
-            this.pad.Size = new System.Drawing.Size(242, 24);
+            this.pad.Size = new System.Drawing.Size(323, 30);
             this.pad.TabIndex = 0;
             this.pad.TabStop = false;
             // 
@@ -209,24 +227,14 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // GameOver2
-            // 
-            this.GameOver2.AutoSize = true;
-            this.GameOver2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GameOver2.Location = new System.Drawing.Point(398, 28);
-            this.GameOver2.Name = "GameOver2";
-            this.GameOver2.Size = new System.Drawing.Size(393, 55);
-            this.GameOver2.TabIndex = 14;
-            this.GameOver2.Text = "Press Esc to exit!";
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1187, 684);
+            this.ClientSize = new System.Drawing.Size(1583, 842);
             this.Controls.Add(this.PlayArea);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
