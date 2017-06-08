@@ -61,7 +61,7 @@
             // PlayArea
             // 
             this.PlayArea.AutoSize = true;
-            this.PlayArea.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.PlayArea.BackColor = System.Drawing.Color.Transparent;
             this.PlayArea.Controls.Add(this.pad);
             this.PlayArea.Controls.Add(this.GameOver2);
             this.PlayArea.Controls.Add(this.Number);
@@ -268,6 +268,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.PlayArea.ResumeLayout(false);
             this.PlayArea.PerformLayout();

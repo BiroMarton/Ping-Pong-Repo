@@ -110,6 +110,7 @@ namespace PingPong
                     else
                     {
                         speed_top -= 5;
+
                     }
                     
                     DiffVal.Text = Math.Abs(speed_top).ToString();
@@ -217,6 +218,11 @@ namespace PingPong
         }
 
         private void PlayArea_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
